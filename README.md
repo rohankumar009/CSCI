@@ -4,5 +4,6 @@ I created a chess game using Java that provides an interactive experience for us
 
 
 Sample Game Play:
+
 ![Screenshot 2023-03-04 at 9 31 57 PM](https://user-images.githubusercontent.com/96805095/222940201-d3fb8241-0999-4bbe-b72b-e5da2e99bc99.png)
 ![Screenshot 2023-03-04 at 9 31 13 PM](https://user-images.githubusercontent.com/96805095/222940177-83997099-3bd3-4c73-ba15-8389c7be5474.png)
