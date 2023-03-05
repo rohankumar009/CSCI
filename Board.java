@@ -3,32 +3,25 @@ public class Board {
     // Instance variables
     private Piece[][] board;
     
-    //TODO:
+
     // Construct an object of type Board using given arguments.
     public Board() { //Based off Instructions
         board = new Piece[8][8]; // Intiallized the Chess board 8 by 8 grid
     }
-    
-    // Accessor Methods
-    
-    //TODO:
+
     // Return the Piece object stored at a given row and column
     public Piece getPiece(int row, int col) {
         
         return board[row][col]; //Getting Piece at a location
     }
     
-    //TODO:
     // Update a single cell of the board to the new piece.
     public void setPiece(int row, int col, Piece piece) {
         
         board[row][col] = piece; //Set the piece at a location
         piece.setPosition(row, col);
     }
-    
-    // Game functionality methods
-    
-    //TODO:
+
     // Moves a Piece object from one cell in the board to another, provided that
     // this movement is legal. Returns a boolean to signify success or failure.
     public boolean movePiece(int startRow, int startCol, int endRow, int endCol) {
@@ -43,10 +36,8 @@ public class Board {
     
         return false;
     }
-    
-    //TODO:
-    // Determines whether the game has been ended, i.e., if one player's King
-    // has been captured.
+
+    // Determines whether the game has been ended, i.e., if one player's King has been captured.
     public boolean isGameOver() {
 
         int num_king = 0; //Start value of king on the board
@@ -64,10 +55,8 @@ public class Board {
             return false;
         }
     }
-    
-    //TODO:
-    // Construct a String that represents the Board object's 2D array. Return
-    // the fully constructed String.
+
+    // Construct a String that represents the Board object's 2D array. Return the fully constructed String.
     public String toString() {
         String result = "   0 1 2 3 4 5 6 7" + "\n"; //Printing the Columns
         for(int i = 0; i < 8; i++) {
@@ -84,9 +73,8 @@ public class Board {
         }
         return result;
     }
-    
-    //TODO:
-    // Sets every cell of the array to null. For debugging and grading purposes.
+
+    // Sets every cell of the array to null. For debugging purposes
     public void clear() {
         for(int i = 0; i < 8; i++) { // Going through all the rows and then Going through all the columns in the next loop
             for(int j = 0; j < 8; j++) { 
@@ -97,14 +85,6 @@ public class Board {
     }
     
     // Movement helper functions
-    
-    //TODO:
-    // Ensure that the player's chosen move is even remotely legal.
-    // Returns a boolean to signify whether:
-    // - 'start' and 'end' fall within the array's bounds.
-    // - 'start' contains a Piece object, i.e., not null.
-    // - Player's color and color of 'start' Piece match.
-    // - 'end' contains either no Piece or a Piece of the opposite color.
     public boolean verifySourceAndDestination(int startRow, int startCol, int endRow, int endCol, boolean isBlack) {
     
         if(startRow >= 0 || startCol >= 0 || endRow <= 7 || endCol <= 7) { //Checking if in bound
@@ -120,10 +100,7 @@ public class Board {
         }
         return false;
     }
-        
     
-    
-    //TODO:
     // Check whether the 'start' position and 'end' position are adjacent to each other
     public boolean verifyAdjacent(int startRow, int startCol, int endRow, int endCol) {
         if((startRow + 1 == endRow) || (startCol + 1 == endCol) || (startRow - 1 == endRow ) || (startCol - 1 == endCol)) { // Left, right, up, and down - adding 1 or subtracting 1 would give me the end result such as endRow etc.
@@ -131,18 +108,8 @@ public class Board {
         }
         return false;
     }
-    
-    //TODO:
-    // Checks whether a given 'start' and 'end' position are a valid horizontal move.
-    // Returns a boolean to signify whether:
-    // - The entire move takes place on one row.
-    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    //TODO:
-    // Checks whether a given 'start' and 'end' position are a valid vertical move.
-    // Returns a boolean to signify whether:
-    // - The entire move takes place on one column.
-    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    
+
+    // Checks valid move in horizontal direction and valid vertical move
     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
         
         if(startRow != endRow){
@@ -201,11 +168,7 @@ public class Board {
         return true;
     }
     
-    //TODO:
     // Checks whether a given 'start' and 'end' position are a valid diagonal move.
-    // Returns a boolean to signify whether:
-    // - The path from 'start' to 'end' is diagonal... change in row and col.
-    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyDiagonal(int startRow, int startCol, int endRow, int endCol) {
         if(Math.abs(startRow - endRow) != Math.abs(startCol - endCol)) {
             return false;
@@ -244,7 +207,7 @@ public class Board {
         }
     }
     
-    public static void main(String[] args) { // This was just a test before I made the game class to test the movement of the pieces, kindly ignore
+    public static void main(String[] args) { // Testing board and movement
         /*Board test = new Board();
         Fen.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",test);
         test.movePiece(7,6,5,5);
