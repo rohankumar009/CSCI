@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Game {
-    // The code was written in dark mode but the functions are the same for all pieces and game is over when the king is caputured
+    
+    // This code was written in dark mode but the functions are the same for all pieces and game is over when the king is caputured
     public static void main(String[] args) {
         Board chessBoard = new Board(); // Makes the Chess board
         Scanner myScan = new Scanner(System.in);
@@ -32,9 +33,7 @@ public class Game {
             }
         
         }
-        //chessBoard.getPiece(endRow, endCol).pawnPromo(); The code is written in the Piece class, but I was unable to fully make the Pawn promotion to work
-        // Hopefully Pawn Promotion does not count for a substaintial amount of points as everything else is working well
-    
+      
         System.out.println(chessBoard);
         System.out.println("The King has been captured- Game Over");
     
